@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title }}</title>
+  <meta name="viewport" content="width=device-width" />
+  <script src="/account/assets/js/lib/react.min.js"></script>
+  <script src="/account/assets/js/lib/react-dom.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/account/assets/css/bundle.css">
+</head>
+<body>
+  <div id="root" className="root">{{ pageContent }}</div>
+  <script src="/account/assets/js/{{ pageFile }}.js"></script>
+  <script type="text/javascript">
+    window.PageData = {{ pageData }}
+    window.Config = {{ appConfig }}
+    ReactDOM.render(React.createElement({{ pageType }}, null), document.getElementById("root"));
+  </script>
+</body>
+</html>

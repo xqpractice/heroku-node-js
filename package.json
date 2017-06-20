@@ -10,8 +10,8 @@
     "start": "NODE_ENV=production node config/server.js",
     "start:dev": "NODE_ENV=developer node config/server.dev.js",
     "build:clean": "rm -rf ./lib ./public/assets",
-    "build:babel": "./node_modules/.bin/babel src -d lib --copy-files",
-    "build:webpack": "./node_modules/.bin/webpack --config config/webpack/webpack.config.js",
+    "build:babel": "babel src -d lib --copy-files",
+    "build:webpack": "webpack --config config/webpack/webpack.config.js",
     "build:watch": "watch 'npm run build' ./src ./test",
     "build": "npm run build:clean && NODE_ENV=production npm run build:babel && NODE_ENV=production npm run build:webpack",
     "test:lint": "eslint src",
@@ -19,7 +19,7 @@
     "test:watch": "watch 'npm run test' ./src ./test",
     "test": "npm install && npm run test:lint && npm run test:unit",
     "release": "/bin/bash ./ci/git-release.sh",
-    "postinstall": "pwd && `pwd`/node_modules/.bin/babel src -d lib --copy-files"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "bulma": "^0.4.2",

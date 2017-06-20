@@ -19,7 +19,7 @@
     "test:watch": "watch 'npm run test' ./src ./test",
     "test": "npm install && npm run test:lint && npm run test:unit",
     "release": "/bin/bash ./ci/git-release.sh",
-    "postinstall": "pwd && ./node_modules/babel-cli/bin/babel src -d lib --copy-files"
+    "postinstall": "pwd && node_modules/babel-cli/bin/babel src -d lib --copy-files"
   },
   "dependencies": {
     "bulma": "^0.4.2",

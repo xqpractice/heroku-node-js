@@ -7,7 +7,7 @@
     "node": ">= 6"
   },
   "scripts": {
-    "start": "NODE_ENV=production npm run build && node config/server.js",
+    "start": "NODE_ENV=production node config/server.js",
     "start:dev": "NODE_ENV=developer node config/server.dev.js",
     "build:clean": "rm -rf ./lib ./public/assets",
     "build:babel": "babel src -d lib --copy-files",
@@ -18,7 +18,8 @@
     "test:unit": "mocha --compilers js:babel-register test/SpecHelper.js test/js/*-spec.js test/js/**/*-spec.js",
     "test:watch": "watch 'npm run test' ./src ./test",
     "test": "npm install && npm run test:lint && npm run test:unit",
-    "release": "/bin/bash ./ci/git-release.sh"
+    "release": "/bin/bash ./ci/git-release.sh",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "bulma": "^0.4.2",
